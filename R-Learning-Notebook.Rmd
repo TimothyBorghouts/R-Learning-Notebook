@@ -1,0 +1,199 @@
+---
+title: "R Learning Journey"
+author: "Timothy Borghouts"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+# Table of Contents
+
+1.  [Introduction](#introduction)
+2.  [Variables & Data Types](#variables-data-types)
+3.  [Data Structures](#data_structures)
+
+---
+
+# 1. Introduction {#introduction}
+
+Hello! I'm Timothy Borghouts, a 20-year-old student living in Breda. I'm currently studying at Avans University of Applied Sciences.
+
+I’ve been learning Python as part of my study, along with many other programming languages like java, C# javascript and others. Despite that, I’ve always been curious about R and have decided to start learning it on my own. This document will track my journey as I explore R, from basic variables to more advanced data visualization.
+
+This is my R Learning Notebook, where I document everything I’ve learned throughout my journey with R.
+
+---
+
+# 2. Variables & Data Types {#variables-data-types}
+
+Data types in R are the basic building blocks for all variables and data structures. They include numeric, character, logical, and complex types.
+
+## 2.1. Numeric Variables
+Stores numbers, including both whole numbers (integers) and decimal values (floating-point numbers).
+
+```{r}         
+numeric <- 10 # Numeric
+integer <- 20L # Integer 
+float <- 12.34 # Float
+
+# Printing numeric variables
+cat("Numeric:", numeric, "\nInteger:", integer, "\nFloat:", float)
+```
+
+## 2.2. Character Variables
+Represents text or string data, enclosed in quotes.
+
+```{r}         
+character <- "Timothy"  # Character
+sentence <- "Timothy <3 Malou" # longer text
+multiline <- "
+Malou is 
+as slow as 
+a snail" # multiline
+
+# Printing character variables
+cat("Character: ", character, "\nSentence:", sentence, "\nMultiline:", multiline)
+```
+
+## 2.3. Logical Variables
+Represents boolean values, typically TRUE or FALSE, used in decision-making and comparisons.
+
+```{r}         
+is_true <- TRUE  # Logical
+is_false <- FALSE 
+true <- T # True
+false <- F # False
+
+# Printing logical variables
+cat(is_true, is_false, true, false)
+```
+
+## 2.4 Complex Variables
+Represents complex numbers with both real and imaginary components (e.g., 2 + 3i).
+
+```{r}        
+complex <- 17i # Complex
+more_complex <- 2 + 3i # Complex
+# most_complex <- "Malou"
+
+# Printing complex variables
+cat(complex, "\n", more_complex)
+```
+
+---
+
+# 3. Data structures {#data_structures}
+
+Data structures in R are used to organize and store data efficiently. These include vectors, matrices, arrays, lists, and data frames, which allow for more complex data manipulation and analysis.
+
+## 3.1. Vectors
+A sequence of elements of the same type, such as numbers, characters, or logical values.
+
+```{r}         
+numbers <- c(1, 3, 13, 4, 9) # Vector with numerical values
+numbers_in_sequence <- 1:10 # Vector with numerical sequence 1 to 10
+characters <- c("Ikea", "Bed", "Sleep") # Vector of characters
+logicals <- c(TRUE, FALSE, TRUE, FALSE) # Vector of logical values
+
+# Printing vectors
+cat(numbers, "\n", numbers_in_sequence, "\n", characters, "\n", logicals)
+```
+
+## 3.2. Lists
+A flexible structure that can contain multiple types of elements, including numbers, text, and even other lists.
+
+```{r}
+character_list <- list("R", "C#", "Java", "Python") #List with character values
+numerical_list <- list(1, 24, 9, 183, 2) #List with numerical values
+named_list <- list(name = "Timothy", age = 20, length = 1.83) #List with named elements
+list_of_lists <- list(character_list, numerical_list, named_list) # List containing other lists
+
+# Printing lists
+cat("Character List: ", toString(character_list), "\nNumerical List: ", toString(numerical_list), "\nNamed List:     ", toString(named_list))
+```
+
+## 3.3. Matrices
+A two-dimensional arrangement of elements of the same type, organized into rows and columns.
+
+```{r}   
+# Numeric matrix (3x3)
+numeric_matrix <- matrix(1:9, nrow = 3, ncol = 3) 
+# Character (string) matrix (2x3)
+string_matrix <- matrix(c("A", "B", "C", "D", "E", "F"), nrow = 2, ncol = 3) 
+# Matrix with row/column names
+complex_matrix <- matrix(c(10, 20, 30, 40, 50, 60, 70, 80, 90), nrow = 3, ncol = 3) 
+rownames(complex_matrix) <- c("Row1", "Row2", "Row3")
+colnames(complex_matrix) <- c("Col1", "Col2", "Col3")
+
+
+# Printing Matrices
+cat("Numeric Matrix:\n")
+print(paste(numeric_matrix))
+cat("String Matrix:\n")
+print(string_matrix)
+cat("Matrix with Row and Column Names:\n")
+print(complex_matrix)
+```
+
+
+## 3.4. Arrays
+A multi-dimensional extension of matrices, capable of storing data in multiple layers.
+
+```{r}        
+# 1D array (Just like a vector)
+one_d_array <- array(1:6)  
+
+
+# 2D array with 3 rows and 3 columns (just like a matrix)
+two_d_array <- array(1:9, dim = c(3, 3))  
+
+
+# 3D array (3 rows, 3 columns, 3 layers)
+three_d_array <- array(1:27, dim = c(3, 3, 3))  
+
+
+# Printing Arrays
+cat("1D Array (Vector):\n")
+print(one_d_array)
+cat("\n2D Array (Matrix):\n")
+print(two_d_array)
+cat("\n3D Array:\n")
+print(three_d_array)
+```
+
+
+## 3.5. Data Frames
+A table-like structure where each column can hold different types of data, commonly used for organizing and analyzing datasets.
+
+```{r}         
+data_frame <- data.frame( # Data frame
+  Name = c("Timothy", "Malou", "Kim", "Freek"), # Vector of names
+  Age = c(20, 20, 20, 19), # Vector of numbers
+  Height = c(6.0, 2.3, 5.7, 6.2) # Vector of floats
+)
+
+data_frame$Name  # Access the 'Name' column
+data_frame[1, 2]  # Access element at first row, second column
+
+# Display the entire data frame
+data_frame
+```
+
+## 3.6. Factor
+A structure used for categorical data, storing values as predefined levels for efficient grouping.
+
+```{r}        
+factor <- factor(c("Cold", "Normal", "Malou")) # Factor
+
+# Printing factors
+factor
+levels(factor)  # Get the levels of the factor
+```
+
