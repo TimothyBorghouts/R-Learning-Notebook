@@ -11,7 +11,7 @@
 
 <meta name="author" content="Timothy Borghouts" />
 
-<meta name="date" content="2025-02-18" />
+<meta name="date" content="2025-02-21" />
 
 <title>R Learning Journey</title>
 
@@ -423,7 +423,7 @@ display: none;
 
 <h1 class="title toc-ignore">R Learning Journey</h1>
 <h4 class="author">Timothy Borghouts</h4>
-<h4 class="date">2025-02-18</h4>
+<h4 class="date">2025-02-21</h4>
 
 </div>
 
@@ -435,6 +435,7 @@ display: none;
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#variables-data-types">Variables &amp; Data Types</a></li>
 <li><a href="#data_structures">Data Structures</a></li>
+<li><a href="#basic_operations">Basic Operations</a></li>
 </ol>
 <hr />
 </div>
@@ -458,8 +459,8 @@ data structures. They include numeric, character, logical, and complex
 types.</p>
 <div id="numeric-variables" class="section level2">
 <h2>2.1. Numeric Variables</h2>
-<p>Stores numbers, including both whole numbers (integers) and decimal
-values (floating-point numbers).</p>
+<p>Numeric variables store numbers, including both whole numbers
+(integers) and decimal values (floating-point numbers).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>numeric <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># Numeric</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>integer <span class="ot">&lt;-</span> <span class="dv">20</span><span class="dt">L</span> <span class="co"># Integer </span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>float <span class="ot">&lt;-</span> <span class="fl">12.34</span> <span class="co"># Float</span></span>
@@ -472,7 +473,8 @@ values (floating-point numbers).</p>
 </div>
 <div id="character-variables" class="section level2">
 <h2>2.2. Character Variables</h2>
-<p>Represents text or string data, enclosed in quotes.</p>
+<p>Character variables represent text or string data, enclosed in
+quotes.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>character <span class="ot">&lt;-</span> <span class="st">&quot;Timothy&quot;</span>  <span class="co"># Character</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>sentence <span class="ot">&lt;-</span> <span class="st">&quot;Timothy &lt;3 Malou&quot;</span> <span class="co"># longer text</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>multiline <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
@@ -491,8 +493,8 @@ values (floating-point numbers).</p>
 </div>
 <div id="logical-variables" class="section level2">
 <h2>2.3. Logical Variables</h2>
-<p>Represents boolean values, typically TRUE or FALSE, used in
-decision-making and comparisons.</p>
+<p>Logical variables represent boolean values, typically TRUE or FALSE,
+used in decision-making and comparisons.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>is_true <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># Logical</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>is_false <span class="ot">&lt;-</span> <span class="cn">FALSE</span> </span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>true <span class="ot">&lt;-</span> T <span class="co"># True</span></span>
@@ -504,8 +506,8 @@ decision-making and comparisons.</p>
 </div>
 <div id="complex-variables" class="section level2">
 <h2>2.4 Complex Variables</h2>
-<p>Represents complex numbers with both real and imaginary components
-(e.g., 2 + 3i).</p>
+<p>Complex variables represents complex numbers with both real and
+imaginary components (e.g., 2 + 3i).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>complex <span class="ot">&lt;-</span> <span class="dv">17</span><span class="dt">i</span> <span class="co"># Complex</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>more_complex <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="dt">i</span> <span class="co"># Complex</span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># most_complex &lt;- &quot;Malou&quot;</span></span>
@@ -674,6 +676,273 @@ levels for efficient grouping.</p>
 ## Levels: Cold Malou Normal</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="fu">levels</span>(factor)  <span class="co"># Get the levels of the factor</span></span></code></pre></div>
 <pre><code>## [1] &quot;Cold&quot;   &quot;Malou&quot;  &quot;Normal&quot;</code></pre>
+<hr />
+</div>
+</div>
+<div id="basic_operations" class="section level1">
+<h1>4. Basic Operations</h1>
+<p>Basic operations in R are fundamental for mathematical calculations
+and data manipulation. These operations include arithmetic, logical, and
+comparison operations, which allow you to perform calculations and make
+decisions based on data values.</p>
+<div id="arithmetic-operations" class="section level2">
+<h2>4.1 Arithmetic Operations</h2>
+<p>These operations allow you to perform basic mathematical calculations
+in R.</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="14%" />
+<col width="22%" />
+<col width="21%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Operation</strong></th>
+<th><strong>Operator</strong></th>
+<th><strong>Example Input</strong></th>
+<th><strong>Example Output</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Addition</strong></td>
+<td><code>+</code></td>
+<td><code>10 + 2</code></td>
+<td><code>12</code></td>
+<td>Adds two values.</td>
+</tr>
+<tr class="even">
+<td><strong>Subtraction</strong></td>
+<td><code>-</code></td>
+<td><code>9 - 3</code></td>
+<td><code>6</code></td>
+<td>Subtracts the second value from the first.</td>
+</tr>
+<tr class="odd">
+<td><strong>Multiplication</strong></td>
+<td><code>*</code></td>
+<td><code>5 * 5</code></td>
+<td><code>25</code></td>
+<td>Multiplies two values.</td>
+</tr>
+<tr class="even">
+<td><strong>Division</strong></td>
+<td><code>/</code></td>
+<td><code>9 / 3</code></td>
+<td><code>3</code></td>
+<td>Divides the first value by the second.</td>
+</tr>
+<tr class="odd">
+<td><strong>Power</strong></td>
+<td><code>^</code> or <code>**</code></td>
+<td><code>5 ^ 2</code> or <code>4 ** 2</code></td>
+<td><code>25</code> or <code>16</code></td>
+<td>Raises the first number to the power of the second number.</td>
+</tr>
+<tr class="even">
+<td><strong>Modulus</strong></td>
+<td><code>%%</code></td>
+<td><code>10 %% 3</code></td>
+<td><code>1</code></td>
+<td>Finds the remainder when dividing the first value by the
+second.</td>
+</tr>
+<tr class="odd">
+<td><strong>Integer Division</strong></td>
+<td><code>%/%</code></td>
+<td><code>10 %/% 3</code></td>
+<td><code>3</code></td>
+<td>Divides the first value by the second and returns the quotient
+(ignores the remainder).</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a>addition <span class="ot">&lt;-</span> x <span class="sc">+</span> y       <span class="co"># 13</span></span>
+<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a>subtraction <span class="ot">&lt;-</span> x <span class="sc">-</span> y    <span class="co"># 7</span></span>
+<span id="cb47-6"><a href="#cb47-6" tabindex="-1"></a>multiplication <span class="ot">&lt;-</span> x <span class="sc">*</span> y <span class="co"># 30</span></span>
+<span id="cb47-7"><a href="#cb47-7" tabindex="-1"></a>division <span class="ot">&lt;-</span> x <span class="sc">/</span> y       <span class="co"># 3.33</span></span>
+<span id="cb47-8"><a href="#cb47-8" tabindex="-1"></a>power1 <span class="ot">&lt;-</span> x <span class="sc">^</span> y         <span class="co"># 1000</span></span>
+<span id="cb47-9"><a href="#cb47-9" tabindex="-1"></a>power2 <span class="ot">&lt;-</span> x <span class="sc">**</span> y        <span class="co"># 1000</span></span>
+<span id="cb47-10"><a href="#cb47-10" tabindex="-1"></a>modulus <span class="ot">&lt;-</span> x <span class="sc">%%</span> y       <span class="co"># 1</span></span>
+<span id="cb47-11"><a href="#cb47-11" tabindex="-1"></a>int_div <span class="ot">&lt;-</span> x <span class="sc">%/%</span> y      <span class="co"># 3</span></span>
+<span id="cb47-12"><a href="#cb47-12" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="#cb47-13" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;addition:&quot;</span>, addition, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-14"><a href="#cb47-14" tabindex="-1"></a>    <span class="st">&quot;subtraction:&quot;</span>, subtraction, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-15"><a href="#cb47-15" tabindex="-1"></a>    <span class="st">&quot;multiplication:&quot;</span>, multiplication, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-16"><a href="#cb47-16" tabindex="-1"></a>    <span class="st">&quot;division:&quot;</span>, division, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-17"><a href="#cb47-17" tabindex="-1"></a>    <span class="st">&quot;power1:&quot;</span>, power1, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-18"><a href="#cb47-18" tabindex="-1"></a>    <span class="st">&quot;power2:&quot;</span>, power2, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-19"><a href="#cb47-19" tabindex="-1"></a>    <span class="st">&quot;modulus:&quot;</span>, modulus, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-20"><a href="#cb47-20" tabindex="-1"></a>    <span class="st">&quot;int_div:&quot;</span>, int_div, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## addition: 13 
+##  subtraction: 7 
+##  multiplication: 30 
+##  division: 3.333333 
+##  power1: 1000 
+##  power2: 1000 
+##  modulus: 1 
+##  int_div: 3</code></pre>
+</div>
+<div id="logical-operations" class="section level2">
+<h2>4.2 Logical operations</h2>
+<p>Logical operations evaluate boolean expressions (TRUE or FALSE).
+These operations are used for logical comparisons.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="17%" />
+<col width="16%" />
+<col width="24%" />
+<col width="22%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Operation</strong></th>
+<th><strong>Operator</strong></th>
+<th><strong>Example Input</strong></th>
+<th><strong>Example Output</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>AND</strong></td>
+<td><code>&amp;</code></td>
+<td><code>TRUE &amp; FALSE</code></td>
+<td><code>FALSE</code></td>
+<td>Returns <code>TRUE</code> only if both values are
+<code>TRUE</code>.</td>
+</tr>
+<tr class="even">
+<td><strong>OR</strong></td>
+<td><code>||</code></td>
+<td><code>TRUE || FALSE</code></td>
+<td><code>TRUE</code></td>
+<td>Returns <code>TRUE</code> if at least one value is
+<code>TRUE</code>.</td>
+</tr>
+<tr class="odd">
+<td><strong>NOT</strong></td>
+<td><code>!</code></td>
+<td><code>!TRUE</code></td>
+<td><code>FALSE</code></td>
+<td>Reverses the boolean value (NOT operation).</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a>and_result <span class="ot">&lt;-</span> a <span class="sc">&amp;</span> b  <span class="co"># FALSE</span></span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a>or_result <span class="ot">&lt;-</span> a <span class="sc">||</span> b  <span class="co"># TRUE</span></span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a>not_result <span class="ot">&lt;-</span> <span class="sc">!</span>a     <span class="co"># FALSE</span></span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;and_result:&quot;</span>, and_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb49-9"><a href="#cb49-9" tabindex="-1"></a>    <span class="st">&quot;or_result:&quot;</span>, or_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" tabindex="-1"></a>    <span class="st">&quot;not_result:&quot;</span>, not_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## and_result: FALSE 
+##  or_result: TRUE 
+##  not_result: FALSE</code></pre>
+</div>
+<div id="comparison-operations" class="section level2">
+<h2>4.3 Comparison Operations</h2>
+<p>These operations allow you to compare values to evaluate
+conditions.</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="14%" />
+<col width="22%" />
+<col width="21%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Operation</strong></th>
+<th><strong>Operator</strong></th>
+<th><strong>Example Input</strong></th>
+<th><strong>Example Output</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Equal to</strong></td>
+<td><code>==</code></td>
+<td><code>3 == 3</code></td>
+<td><code>TRUE</code></td>
+<td>Returns <code>TRUE</code> if both values are equal.</td>
+</tr>
+<tr class="even">
+<td><strong>Not equal to</strong></td>
+<td><code>!=</code></td>
+<td><code>3 != 4</code></td>
+<td><code>TRUE</code></td>
+<td>Returns <code>TRUE</code> if the values are not equal.</td>
+</tr>
+<tr class="odd">
+<td><strong>Greater than</strong></td>
+<td><code>&gt;</code></td>
+<td><code>5 &gt; 2</code></td>
+<td><code>TRUE</code></td>
+<td>Returns <code>TRUE</code> if the first value is greater than the
+second.</td>
+</tr>
+<tr class="even">
+<td><strong>Less than</strong></td>
+<td><code>&lt;</code></td>
+<td><code>5 &lt; 2</code></td>
+<td><code>FALSE</code></td>
+<td>Returns <code>TRUE</code> if the first value is less than the
+second.</td>
+</tr>
+<tr class="odd">
+<td><strong>Greater or Equal</strong></td>
+<td><code>&gt;=</code></td>
+<td><code>5 &gt;= 5</code></td>
+<td><code>TRUE</code></td>
+<td>Returns <code>TRUE</code> if the first value is greater than or
+equal to the second.</td>
+</tr>
+<tr class="even">
+<td><strong>Less or Equal</strong></td>
+<td><code>&lt;=</code></td>
+<td><code>3 &lt;= 2</code></td>
+<td><code>FALSE</code></td>
+<td>Returns <code>TRUE</code> if the first value is less than or equal
+to the second.</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a>equal <span class="ot">&lt;-</span> x <span class="sc">==</span> y   <span class="co"># FALSE</span></span>
+<span id="cb51-6"><a href="#cb51-6" tabindex="-1"></a>not_equal <span class="ot">&lt;-</span> x <span class="sc">!=</span> y <span class="co"># TRUE</span></span>
+<span id="cb51-7"><a href="#cb51-7" tabindex="-1"></a>greater_than <span class="ot">&lt;-</span> z <span class="sc">&gt;</span> x <span class="co"># TRUE</span></span>
+<span id="cb51-8"><a href="#cb51-8" tabindex="-1"></a>less_than <span class="ot">&lt;-</span> z <span class="sc">&lt;</span> y    <span class="co"># FALSE</span></span>
+<span id="cb51-9"><a href="#cb51-9" tabindex="-1"></a>greater_or_equal <span class="ot">&lt;-</span> z <span class="sc">&gt;=</span> x  <span class="co"># TRUE</span></span>
+<span id="cb51-10"><a href="#cb51-10" tabindex="-1"></a>less_or_equal <span class="ot">&lt;-</span> x <span class="sc">&lt;=</span> y    <span class="co"># TRUE</span></span>
+<span id="cb51-11"><a href="#cb51-11" tabindex="-1"></a></span>
+<span id="cb51-12"><a href="#cb51-12" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;equal:&quot;</span>, equal, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-13"><a href="#cb51-13" tabindex="-1"></a>    <span class="st">&quot;not_equal:&quot;</span>, not_equal, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-14"><a href="#cb51-14" tabindex="-1"></a>    <span class="st">&quot;greater_than:&quot;</span>, greater_than, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-15"><a href="#cb51-15" tabindex="-1"></a>    <span class="st">&quot;less_than:&quot;</span>, less_than, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-16"><a href="#cb51-16" tabindex="-1"></a>    <span class="st">&quot;greater_or_equal:&quot;</span>, greater_or_equal, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-17"><a href="#cb51-17" tabindex="-1"></a>    <span class="st">&quot;less_or_equal:&quot;</span>, less_or_equal, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## equal: FALSE 
+##  not_equal: TRUE 
+##  greater_than: TRUE 
+##  less_than: FALSE 
+##  greater_or_equal: TRUE 
+##  less_or_equal: TRUE</code></pre>
 </div>
 </div>
 
